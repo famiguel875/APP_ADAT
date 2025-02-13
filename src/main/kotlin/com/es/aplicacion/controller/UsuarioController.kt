@@ -32,12 +32,9 @@ class UsuarioController {
     fun insert(
         httpRequest: HttpServletRequest,
         @RequestBody usuarioRegisterDTO: UsuarioRegisterDTO
-    ) : ResponseEntity<UsuarioDTO>?{
-
-        // TODO: Implementar este metodo
-
-        return ResponseEntity(null, HttpStatus.CREATED)
-
+    ): ResponseEntity<UsuarioDTO> {
+        val usuarioDTO = usuarioService.insertUser(usuarioRegisterDTO)
+        return ResponseEntity(usuarioDTO, HttpStatus.CREATED)
     }
 
     @PostMapping("/login")
